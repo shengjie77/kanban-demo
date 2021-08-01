@@ -9,7 +9,7 @@ export function Button(props: ButtonProps) {
   return (
     <button className="button">
       {props.iconID ? createIcon(props.iconID) : null}
-      {props.text ? <span>{props.text}</span> : null}
+      {props.text ? <span className="button-text">{props.text}</span> : null}
     </button>
   )
 }
@@ -18,7 +18,7 @@ function createIcon(id: IconID) {
   return (
     <Icon
       id={id}
-      size={24}
+      size={20}
       color='#fff'
     />
   )

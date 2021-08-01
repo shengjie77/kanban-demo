@@ -57,10 +57,3 @@ function Card() {
     <div>Card</div>
   )
 }
-
-function Avatar() {
-  // TODO:
-  return (
-    <div></div>
-  )
-}

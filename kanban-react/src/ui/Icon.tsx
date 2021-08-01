@@ -17,10 +17,10 @@ export interface IconProps {
 }
 
 export function Icon(props: IconProps) {
-  return createSVGByID(props.id)
+  return createSVGByID(props.id, props.size)
 }
 
-function createSVGByID(id: IconID) {
+function createSVGByID(id: IconID, size: number) {
   const map: any = {
     [IconID.Grid]: GridIcon,
     [IconID.House]: HouseIcon,
@@ -38,7 +38,7 @@ function createSVGByID(id: IconID) {
     return null;
   }
 
-  return <Constructor width={24} height={24} color="#fff" />
+  return <Constructor width={size} height={size} color="#fff" />
 }
 
 interface SvgProps {

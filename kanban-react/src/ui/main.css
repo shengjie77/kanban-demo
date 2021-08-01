@@ -8,9 +8,41 @@
 }
 
 .header {
-  height: 40px;
+  display: flex;
+  flex-direction: row;
   padding: 4px;
   background: rgba(0, 0, 0, 0.15);
+}
+
+.header-left > *, .header-right > * {
+  margin-right: 4px;
+}
+
+.header-left > *:last-child, .header-right > *:last-child {
+  margin-right: 0;
+}
+
+.header-left {
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-center {
+  flex: 100px 0 0;
+  background-image: url(https://a.trellocdn.com/prgb/dist/images/header-logo-spirit.d947df93bc055849898e.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.header-right {
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
 }
 
 .board {
@@ -30,8 +62,27 @@
   flex-direction: row;
   align-items: center;
 
-  padding: 0 4px;
+  padding: 0 6px;
+  border-radius: 3px;
   border: none;
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.button-text {
+  color: #fff;
+  font-size: 14px;
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+.avatar {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }
