@@ -8,6 +8,7 @@ export enum IconID {
   Add = 'Add',
   Info = 'Info',
   Bell = 'Bell',
+  Calendar = 'Calendar',
 }
 
 export interface IconProps {
@@ -29,6 +30,7 @@ function createSVGByID(id: IconID, size: number) {
     [IconID.Add]: AddIcon,
     [IconID.Info]: InfoIcon,
     [IconID.Bell]: BellIcon,
+    [IconID.Calendar]: CalendarIcon,
   }
 
   const Constructor = map[id]
@@ -41,13 +43,9 @@ function createSVGByID(id: IconID, size: number) {
   return <Constructor width={size} height={size} color="#fff" />
 }
 
-interface SvgProps {
-  width: number
-  height: number
-  color: string
-}
+type SVGProps = React.SVGProps<SVGSVGElement>
 
-function GridIcon(props: SvgProps) {
+function GridIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -64,7 +62,7 @@ function GridIcon(props: SvgProps) {
   )
 }
 
-function HouseIcon(props: SvgProps) {
+function HouseIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -81,7 +79,7 @@ function HouseIcon(props: SvgProps) {
   )
 }
 
-function BoardIcon(props: SvgProps) {
+function BoardIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -98,7 +96,7 @@ function BoardIcon(props: SvgProps) {
   )
 }
 
-function SearchIcon(props: SvgProps) {
+function SearchIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -115,7 +113,7 @@ function SearchIcon(props: SvgProps) {
   )
 }
 
-function AddIcon(props: SvgProps) {
+function AddIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -130,7 +128,7 @@ function AddIcon(props: SvgProps) {
   )
 }
 
-function InfoIcon(props: SvgProps) {
+function InfoIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -151,7 +149,7 @@ function InfoIcon(props: SvgProps) {
   )
 }
 
-function BellIcon(props: SvgProps) {
+function BellIcon(props: SVGProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -162,6 +160,23 @@ function BellIcon(props: SvgProps) {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M12 2a1 1 0 00-1 1v.078a4.687 4.687 0 00-1.867.715 4.51 4.51 0 00-1.527 1.76 5.914 5.914 0 00-.53 1.658A5.908 5.908 0 007 7.972V8L8 8H7v3.723l-2.857 4.762A1 1 0 005 18h14a1 1 0 00.858-1.515L17 11.723V8h-1l1-.001V7.972a2.613 2.613 0 00-.01-.215 5.901 5.901 0 00-.066-.546 5.913 5.913 0 00-.53-1.658 4.51 4.51 0 00-1.527-1.76A4.687 4.687 0 0013 3.078V3a1 1 0 00-1-1zM9 7.988V12a1 1 0 01-.143.514L6.767 16h10.467l-2.092-3.486A1 1 0 0115 12V7.988l-.005-.089a3.903 3.903 0 00-.044-.36 3.92 3.92 0 00-.345-1.092 2.512 2.512 0 00-.848-.99C13.378 5.203 12.825 5 12 5s-1.377.203-1.758.457a2.512 2.512 0 00-.848.99A3.918 3.918 0 009.05 7.54 3.911 3.911 0 009 7.99zM14 19a2 2 0 11-4 0h4z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function CalendarIcon(props: SVGProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 4v1H4.995A1.994 1.994 0 003 6.994v12.012C3 20.106 3.893 21 4.995 21h14.01A1.994 1.994 0 0021 19.006V6.994A1.996 1.996 0 0019.005 5H18V4a1 1 0 00-2 0v1H8V4a1 1 0 00-2 0zm-.75 5.571v8.147c0 .555.444.996.993.996h11.515a.998.998 0 00.992-.996V9.571H5.25zM9 13v-2.001H7V13h2zm8-2.001V13h-2v-2.001h2zM11 13h2.001v-2.001H11V13zm-4 4v-2h2v2H7zm4 0h2.001v-2H11v2zm6-2v2h-2v-2h2z"
         fill="currentColor"
       />
     </svg>

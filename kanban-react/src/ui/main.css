@@ -50,11 +50,29 @@
 }
 
 .board-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+}
 
+.board-header > * {
+  margin-right: 2px;
+}
+
+.board-header > *:last-child {
+  margin-right: 0;
 }
 
 .board-content {
 
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: hsla(0, 0%, 100%, 0.24);
+  margin: 0 4px;
 }
 
 .button {
@@ -85,4 +103,19 @@
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+}
+
+.member-list {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 2px;
+  margin-right: 6px;
+}
+
+.member-list > * {
+  margin-right: -4px;
+}
+
+.member-list > *:first-child {
+  margin-right: 0;
 }
