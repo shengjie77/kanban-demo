@@ -5,9 +5,12 @@
 .main {
   background: var(--main-color);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
+  flex: 0 0;
   display: flex;
   flex-direction: row;
   padding: 4px;
@@ -46,10 +49,13 @@
 }
 
 .board {
-
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .board-header {
+  flex: 0 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,7 +71,74 @@
 }
 
 .board-content {
+  flex: 1 1;
+  display: flex;
+  position: relative;
+}
 
+.board-list-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+  padding: 4px;
+}
+
+.board-list {
+  flex: 246px 0 0 ;
+  min-width: 246px;
+  list-style: none;
+  margin: 0 4px;
+  padding: 4px;
+  border-radius: 3px;
+  background: #ebecf0;
+  max-height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-list:last-child {
+  margin-right: 0;
+}
+
+.board-list__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-list__header-text {
+  font-weight: 600;
+  color: #172b4d;
+  font-size: 14px;
+  padding: 0 8px;
+}
+
+.board-list__body {
+  padding: 0 4px;
+  overflow-y: auto;
+}
+
+.board-list__body > * {
+  margin-bottom: 8px;
+}
+
+.board-list__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.board-list__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .divider {
@@ -75,6 +148,11 @@
   margin: 0 4px;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 .button {
   display: flex;
   flex-direction: row;
@@ -82,10 +160,8 @@
 
   padding: 0 6px;
   border-radius: 3px;
-  border: none;
   height: 32px;
   background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
 }
 
 .button:hover {
@@ -97,6 +173,27 @@
   font-size: 14px;
   padding: 0 6px;
   font-weight: bold;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #6b778c;
+  border-radius: 3px;
+  height: 32px;
+  padding: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.icon-button > span {
+  margin-left: 4px;
+}
+
+.icon-button:hover {
+  background: rgba(9, 30, 66, 0.08);
 }
 
 .avatar {
@@ -118,4 +215,11 @@
 
 .member-list > *:first-child {
   margin-right: 0;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
+  border-radius: 3px;
+  padding: 6px 8px;
 }

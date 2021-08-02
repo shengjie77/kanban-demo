@@ -1,4 +1,5 @@
 import React from 'react'
+import { isPropertySignature } from 'typescript'
 
 export enum IconID {
   Grid = 'Grid',
@@ -9,6 +10,8 @@ export enum IconID {
   Info = 'Info',
   Bell = 'Bell',
   Calendar = 'Calendar',
+  More = 'More',
+  Video = 'Video',
 }
 
 export interface IconProps {
@@ -18,10 +21,6 @@ export interface IconProps {
 }
 
 export function Icon(props: IconProps) {
-  return createSVGByID(props.id, props.size)
-}
-
-function createSVGByID(id: IconID, size: number) {
   const map: any = {
     [IconID.Grid]: GridIcon,
     [IconID.House]: HouseIcon,
@@ -31,16 +30,18 @@ function createSVGByID(id: IconID, size: number) {
     [IconID.Info]: InfoIcon,
     [IconID.Bell]: BellIcon,
     [IconID.Calendar]: CalendarIcon,
+    [IconID.More]: MoreIcon,
+    [IconID.Video]: VideoIcon,
   }
 
-  const Constructor = map[id]
+  const Constructor = map[props.id]
 
   if (!Constructor) {
-    console.warn('Cannot find icon: ', id)
+    console.warn('Cannot find icon: ', props.id)
     return null;
   }
 
-  return <Constructor width={size} height={size} color="#fff" />
+  return <Constructor width={props.size} height={props.size} color={props.color} />
 }
 
 type SVGProps = React.SVGProps<SVGSVGElement>
@@ -177,6 +178,36 @@ function CalendarIcon(props: SVGProps) {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6 4v1H4.995A1.994 1.994 0 003 6.994v12.012C3 20.106 3.893 21 4.995 21h14.01A1.994 1.994 0 0021 19.006V6.994A1.996 1.996 0 0019.005 5H18V4a1 1 0 00-2 0v1H8V4a1 1 0 00-2 0zm-.75 5.571v8.147c0 .555.444.996.993.996h11.515a.998.998 0 00.992-.996V9.571H5.25zM9 13v-2.001H7V13h2zm8-2.001V13h-2v-2.001h2zM11 13h2.001v-2.001H11V13zm-4 4v-2h2v2H7zm4 0h2.001v-2H11v2zm6-2v2h-2v-2h2z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function MoreIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M113.7 304C86.2 304 64 282.6 64 256c0-26.5 22.2-48 49.7-48 27.6 0 49.8 21.5 49.8 48 0 26.6-22.2 48-49.8 48zM256 304c-27.5 0-49.8-21.4-49.8-48 0-26.5 22.3-48 49.8-48 27.5 0 49.7 21.5 49.7 48 0 26.6-22.2 48-49.7 48zM398.2 304c-27.5 0-49.8-21.4-49.8-48 0-26.5 22.2-48 49.8-48 27.5 0 49.8 21.5 49.8 48 0 26.6-22.2 48-49.8 48z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function VideoIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 50 50"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <title />
+      <path
+        d="M47.1 12.3a2 2 0 00-1.9-.1L36 16.8V14a2 2 0 00-2-2H4a2 2 0 00-2 2v22a2 2 0 002 2h30a2 2 0 002-2v-2.8l9.1 4.6.9.2a2 2 0 002-2V14a2 2 0 00-.9-1.7zM32 34H6V16h26v18zm12-1.2l-8-4v-7.6l8-4v15.6z"
         fill="currentColor"
       />
     </svg>
